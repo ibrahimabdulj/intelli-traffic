@@ -1,7 +1,7 @@
 # Intelligent Traffic Management System
 # Core modules for an AI-powered traffic control system with accident detection
 
-import cv2
+import cv3
 import numpy as np
 import time
 import requests
