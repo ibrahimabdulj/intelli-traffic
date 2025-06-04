@@ -34,17 +34,22 @@ def send_traffic_alert(event_type, direction, confidence=None):
     data = {
         "event_type": event_type,
         "direction": direction,
-        "timestamp": datetime.datetime.utcnow().isoformat(),
+        "timestamp": datetime.datetime.utcnow().isoformat() + "Z",  # ISO format with Zulu timezone
     }
     if confidence is not None:
         data["confidence"] = confidence
 
-    response = requests.post(SUPABASE_URL, json=data, headers=headers)
-
-    if response.status_code == 201:
-        print(f"Alert sent successfully: {data}")
-    else:
-        print(f"Failed to send alert: {response.status_code} - {response.text}")
+    try:
+        response = requests.post(SUPABASE_URL, json=data, headers=headers, timeout=5)
+        if response.status_code in (200, 201):
+            print(f"Alert sent successfully: {data}")
+            return True
+        else:
+            print(f"Failed to send alert: {response.status_code} - {response.text}")
+            return False
+    except requests.exceptions.RequestException as e:
+        print(f"Exception occurred while sending alert: {e}")
+        return False
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
