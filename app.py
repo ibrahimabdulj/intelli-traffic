@@ -16,6 +16,28 @@ from enum import Enum
 from collections import defaultdict
 from datetime import datetime
 
+import requests
+import datetime
+
+# This function will send traffic alerts to your web backend
+def send_traffic_alert(alert_type, direction):
+    url = "https://your-backend-domain.com/api/traffic"  # REPLACE with your actual backend endpoint
+
+    data = {
+        "alert_type": alert_type,       # e.g., "accident", "congestion", or "emergency"
+        "direction": direction          # e.g., "north", "south", "east", "west"
+    }
+
+    try:
+        response = requests.post(url, json=data)
+        if response.status_code == 200:
+            print(f"[{datetime.datetime.now()}] Alert sent: {alert_type} in {direction}")
+        else:
+            print(f"[ERROR] Failed to send alert: {response.status_code} - {response.text}")
+    except Exception as e:
+        print(f"[EXCEPTION] Error sending alert: {e}")
+
+
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
@@ -375,7 +397,7 @@ class AlertSystem:
     def __init__(self, gsm_port=None):
         self.gsm_port = gsm_port
         self.gsm_connected = False
-        self.emergency_contacts = ["+1234567890"]  # Default emergency contact
+        self.emergency_contacts = ["+2348107471505"]  # Default emergency contact
         
         # Try to connect to GSM module if port provided
         if gsm_port:
