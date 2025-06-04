@@ -675,6 +675,35 @@ class IntelligentTrafficSystem:
                 logger.error(f"Error in decision loop: {e}")
                 time.sleep(1)  # Prevent rapid error loops
 
+def monitor_traffic():
+    traffic_system = IntelligentTrafficSystem()
+    
+    while True:
+        for direction, camera_id in JUNCTIONS.items():
+            frame = capture_frame(camera_id)  # You already have this function
+            vision_response = get_vision_analysis(frame)  # And this one too
+
+            if vision_response:
+                # 🚨 Accident Detection
+                if traffic_system.accident_detector.detect_accident(frame, vision_response):
+                    logger.info(f"Accident detected at {direction} junction.")
+                    send_traffic_alert("accident", direction)
+
+                # 🚓 Emergency Detection
+                if traffic_system.emergency_detector.detect_emergency_vehicle(frame, vision_response):
+                    logger.info(f"Emergency vehicle detected at {direction} junction.")
+                    send_traffic_alert("emergency", direction)
+
+                # 🚗 Congestion Detection
+                vehicle_count = traffic_system.vehicle_counter.count_vehicles(frame)
+                if vehicle_count >= CONGESTION_THRESHOLD:
+                    logger.info(f"Congestion detected at {direction} junction with {vehicle_count} vehicles.")
+                    send_traffic_alert("congestion", direction)
+
+        time.sleep(5)  # Wait a few seconds before next scan (adjust as needed)
+
+
+
 if __name__ == "__main__":
     # Camera port configuration
     camera_ports = {
@@ -692,4 +721,4 @@ if __name__ == "__main__":
     
     # Create and start the system
     system = IntelligentTrafficSystem(camera_ports, api_key, gsm_port)
-    system.start()
+    system.monitor_traffic()
