@@ -19,24 +19,32 @@ from datetime import datetime
 import requests
 import datetime
 
-# This function will send traffic alerts to your web backend
-def send_traffic_alert(alert_type, direction):
-    url = "https://your-backend-domain.com/api/traffic"  # REPLACE with your actual backend endpoint
+SUPABASE_URL = "https://fxvslxkvsqydgqtgzqlg.supabase.com"
+SUPABASE_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ4dnNseGt2c3F5ZGdxdGd6cWxnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkwNDE2MzYsImV4cCI6MjA2NDYxNzYzNn0.YbwRTt9ADEzpKHOUL28s3mkKJM4GdaqAJ4P5DtyYqqg"
 
-    data = {
-        "alert_type": alert_type,       # e.g., "accident", "congestion", or "emergency"
-        "direction": direction          # e.g., "north", "south", "east", "west"
+# This function will send traffic alerts to your web backend
+def send_traffic_alert(event_type, direction, confidence=None):
+    headers = {
+        "apikey": SUPABASE_API_KEY,
+        "Authorization": f"Bearer {SUPABASE_API_KEY}",
+        "Content-Type": "application/json",
+        "Prefer": "return=representation"
     }
 
-    try:
-        response = requests.post(url, json=data)
-        if response.status_code == 200:
-            print(f"[{datetime.datetime.now()}] Alert sent: {alert_type} in {direction}")
-        else:
-            print(f"[ERROR] Failed to send alert: {response.status_code} - {response.text}")
-    except Exception as e:
-        print(f"[EXCEPTION] Error sending alert: {e}")
+    data = {
+        "event_type": event_type,
+        "direction": direction,
+        "timestamp": datetime.datetime.utcnow().isoformat(),
+    }
+    if confidence is not None:
+        data["confidence"] = confidence
 
+    response = requests.post(SUPABASE_URL, json=data, headers=headers)
+
+    if response.status_code == 201:
+        print(f"Alert sent successfully: {data}")
+    else:
+        print(f"Failed to send alert: {response.status_code} - {response.text}")
 
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
