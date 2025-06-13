@@ -15,14 +15,37 @@ import RPi.GPIO as GPIO
 from enum import Enum
 from collections import defaultdict
 from datetime import datetime
-
 import requests
 import datetime
+from flask import Flask, Response
+
 
 SUPABASE_URL = "https://fxvslxkvsqydgqtgzqlg.supabase.com"
 SUPABASE_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ4dnNseGt2c3F5ZGdxdGd6cWxnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkwNDE2MzYsImV4cCI6MjA2NDYxNzYzNn0.YbwRTt9ADEzpKHOUL28s3mkKJM4GdaqAJ4P5DtyYqqg"
 
-# This function will send traffic alerts to your web backend
+# Livefeed 
+app = Flask(__name__)
+camera = cv2.VideoCapture(0)  # Change 0 if using PiCamera module
+
+def generate_frames():
+    while True:
+        success, frame = camera.read()
+        if not success:
+            break
+        else:
+            _, buffer = cv2.imencode('.jpg', frame)
+            frame = buffer.tobytes()
+            yield (b'--frame\r\n'
+                   b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+
+@app.route('/video_feed')
+def video_feed():
+    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)
+
+# This function will send traffic alerts to my web backend
 def send_traffic_alert(event_type, direction, confidence=None):
     headers = {
         "apikey": SUPABASE_API_KEY,
