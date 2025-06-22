@@ -738,16 +738,46 @@ def monitor_traffic():
 
         time.sleep(5)  # Wait a few seconds before next scan (adjust as needed)
 
+#camera-motor rotation
+servo_pin = 18  # You can use any PWM-capable GPIO pin
+
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(servo_pin, GPIO.OUT)
+
+# Set up PWM on pin 18 with 50Hz
+pwm = GPIO.PWM(servo_pin, 50)
+pwm.start(0)
+
+def rotate_camera(angle):
+    duty = angle / 18 + 2
+    GPIO.output(servo_pin, True)
+    pwm.ChangeDutyCycle(duty)
+    time.sleep(0.5)
+    GPIO.output(servo_pin, False)
+    pwm.ChangeDutyCycle(0)
+
+try:
+    while True:
+        rotate_camera(0)    # Left
+        time.sleep(10)      # Wait for 10 sec
+        rotate_camera(90)   # Center
+        time.sleep(10)
+        rotate_camera(180)  # Right
+        time.sleep(10)
+
+except KeyboardInterrupt:
+    pwm.stop()
+    GPIO.cleanup()
 
 
-if __name__ == "__main__":
-    # Camera port configuration
-    camera_ports = {
-        Direction.NORTH: 0,  # First camera (built-in or USB)
-        Direction.EAST: 2,   # Additional USB cameras
-        Direction.SOUTH: 4,
-        Direction.WEST: 6
-    }
+# if __name__ == "__main__":
+#     # Camera port configuration
+#     camera_ports = {
+#         Direction.NORTH: 0,  # First camera (built-in or USB)
+#         Direction.EAST: 2,   # Additional USB cameras
+#         Direction.SOUTH: 4,
+#         Direction.WEST: 6
+#     }
     
     # Replace with your actual API key
     api_key = "your_vision_model_api_key_here"
