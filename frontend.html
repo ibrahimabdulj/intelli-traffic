@@ -2,42 +2,376 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Traffic Simulation Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intelligent Traffic Management System</title>
     <style>
-        body { font-family: Arial, sans-serif; background: #f8f8f8; margin: 0; padding: 0; }
-        .container { max-width: 700px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #ccc; padding: 24px; }
-        h1 { text-align: center; }
-        .log-entry { border-bottom: 1px solid #eee; padding: 10px 0; }
-        .alerts { color: #b30000; font-weight: bold; }
-        .direction { font-weight: bold; }
-        .vision { color: #555; }
-    </style>
-    <script>
-        function fetchLogs() {
-            fetch('http://localhost:8000/logs').then(r => r.json()).then(data => {
-                let logs = data.logs;
-                let html = '';
-                for (let log of logs) {
-                    html += `<div class='log-entry'>`;
-                    html += `<span class='direction'>[Cycle ${log.cycle}] ${log.direction}</span><br/>`;
-                    html += `<span class='vision'>${log.vision_response}</span><br/>`;
-                    html += `<span>Vehicle count: ${log.vehicle_count}</span><br/>`;
-                    if (log.alerts.length > 0) {
-                        html += `<span class='alerts'>Alerts: ${log.alerts.join(' | ')}</span>`;
-                    }
-                    html += `</div>`;
-                }
-                document.getElementById('logs').innerHTML = html;
-            });
+        :root {
+            --primary-color: #007bff;
+            --success-color: #28a745;
+            --danger-color: #dc3545;
+            --warning-color: #ffc107;
+            --info-color: #17a2b8;
+            --light-bg: rgba(255, 255, 255, 0.95);
+            --dark-text: #2c3e50;
+            --light-text: #7f8c8d;
         }
-        setInterval(fetchLogs, 1000);
-        window.onload = fetchLogs;
-    </script>
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+            color: #333;
+        }
+
+        .dashboard {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 20px;
+            height: calc(100vh - 40px);
+        }
+
+        .main-panel, .side-panel {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .card {
+            background: var(--light-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        .header { text-align: center; }
+        .header h1 { color: var(--dark-text); font-size: 2.2em; margin-bottom: 8px; font-weight: 600; }
+        .header .subtitle { color: var(--light-text); font-size: 1.1em; }
+
+        .status-indicator {
+            display: inline-block; width: 12px; height: 12px;
+            border-radius: 50%; margin-left: 10px; animation: pulse 2s infinite;
+        }
+        .status-online { background: #27ae60; box-shadow: 0 0 10px rgba(39, 174, 96, 0.5); }
+        .status-offline { background: #e74c3c; box-shadow: 0 0 10px rgba(231, 76, 60, 0.5); }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
+
+        .metrics-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .metric-card {
+            text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .metric-card:hover { transform: translateY(-5px); box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15); }
+        .metric-value { font-size: 2.5em; font-weight: bold; margin-bottom: 5px; }
+        .metric-label { color: var(--light-text); font-size: 0.9em; text-transform: uppercase; letter-spacing: 1px; }
+
+        .traffic-light-visual { flex-grow: 1; padding: 25px; }
+        .junction-container {
+            display: grid; grid-template-columns: 1fr 120px 1fr;
+            grid-template-rows: 1fr 120px 1fr; gap: 10px;
+            height: 300px; margin: 20px auto; max-width: 400px;
+        }
+
+        .direction-light {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            background: #f8f9fa; border-radius: 12px; border: 2px solid #e9ecef;
+            transition: all 0.3s ease; position: relative;
+        }
+        .direction-light.active { background: #e8f5e8; border-color: var(--success-color); }
+        .direction-light.emergency { background: #e6f7ff; border-color: var(--primary-color); animation: pulse-blue 1.5s infinite; }
+        .direction-light.accident { background: #fff0f0; border-color: var(--danger-color); animation: pulse-red 1s infinite; }
+        @keyframes pulse-red { 0%, 100% { background-color: #fff0f0; } 50% { background-color: #ffd1d1; } }
+        @keyframes pulse-blue { 0%, 100% { background-color: #e6f7ff; } 50% { background-color: #ccebff; } }
+
+        .direction-icon { position: absolute; top: 8px; right: 8px; font-size: 1.2em; }
+        .light-indicator { width: 20px; height: 20px; border-radius: 50%; margin-bottom: 8px; background: #ddd; transition: all 0.3s ease; }
+        .light-red { background: #ff4757; box-shadow: 0 0 15px rgba(255, 71, 87, 0.5); }
+        .light-yellow { background: #ffa502; box-shadow: 0 0 15px rgba(255, 165, 2, 0.5); }
+        .light-green { background: #2ed573; box-shadow: 0 0 15px rgba(46, 213, 115, 0.5); }
+
+        .direction-label { font-weight: 600; font-size: 0.9em; color: var(--dark-text); }
+        .vehicle-count { font-size: 0.8em; color: var(--light-text); margin-top: 4px; }
+        .center-junction { background: #343a40; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 0.9em; }
+
+        .alerts-panel { max-height: 300px; overflow-y: auto; }
+        .logs-panel { flex-grow: 1; overflow-y: auto; }
+        
+        .panel-header { display: flex; align-items: center; margin-bottom: 15px; font-size: 1.2em; font-weight: 600; color: var(--dark-text); }
+        .badge { color: white; border-radius: 12px; padding: 4px 8px; font-size: 0.8em; margin-left: 10px; }
+        .alert-badge { background: var(--danger-color); }
+
+        .alert-item { background: #fff5f5; border-left: 4px solid var(--danger-color); padding: 12px; margin-bottom: 10px; border-radius: 8px; font-size: 0.9em; }
+        .alert-item.emergency { background: #e6f7ff; border-left-color: var(--primary-color); }
+        
+        .log-entry { background: #f8f9fa; border-radius: 8px; padding: 15px; margin-bottom: 12px; border-left: 4px solid var(--info-color); }
+        .log-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+        .log-cycle { font-weight: 600; color: #495057; }
+        .log-direction { background: var(--primary-color); color: white; padding: 3px 8px; border-radius: 12px; font-size: 0.8em; }
+        .log-vision { color: #6c757d; font-size: 0.9em; margin-bottom: 8px; line-height: 1.4; }
+        .log-stats { display: flex; justify-content: space-between; align-items: center; font-size: 0.85em; }
+        .vehicle-count-badge { background: var(--success-color); color: white; padding: 3px 8px; border-radius: 12px; }
+        .log-alerts-container { display: flex; gap: 8px; align-items: center; color: var(--danger-color); font-weight: 600; }
+        .log-icon { font-size: 1.1em; }
+
+        .loading { text-align: center; color: var(--light-text); padding: 40px; }
+        .spinner { width: 40px; height: 40px; border: 4px solid #f3f3f3; border-top: 4px solid var(--primary-color); border-radius: 50%; animation: spin 1s linear infinite; margin: 0 auto 20px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+        @media (max-width: 1200px) {
+            .dashboard { grid-template-columns: 1fr; grid-template-rows: auto auto; }
+            .main-panel { order: 2; }
+            .side-panel { order: 1; flex-direction: row; }
+        }
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            .dashboard { height: auto; }
+            .side-panel { flex-direction: column; }
+            .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+            .junction-container { height: 250px; max-width: 300px; }
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Traffic Simulation Dashboard</h1>
-        <div id="logs"></div>
+    <div class="dashboard">
+        <div class="main-panel">
+            <div class="header card">
+                <h1>Intelligent Traffic Management System</h1>
+                <p class="subtitle">
+                    Real-time AI-powered junction monitoring
+                    <span id="systemStatus" class="status-indicator status-offline"></span>
+                </p>
+            </div>
+
+            <div class="metrics-grid">
+                <div class="metric-card card">
+                    <div class="metric-value" id="totalVehicles" style="color: var(--primary-color);">0</div>
+                    <div class="metric-label">Total Vehicles Now</div>
+                </div>
+                <div class="metric-card card">
+                    <div class="metric-value" id="activeAlerts" style="color: var(--danger-color);">0</div>
+                    <div class="metric-label">Active Alerts</div>
+                </div>
+                <div class="metric-card card">
+                    <div class="metric-value" id="currentCycle" style="color: var(--success-color);">0</div>
+                    <div class="metric-label">System Cycle</div>
+                </div>
+                <div class="metric-card card">
+                    <div class="metric-value" id="congestion" style="color: var(--warning-color);">0</div>
+                    <div class="metric-label">Congested Lanes</div>
+                </div>
+            </div>
+
+            <div class="traffic-light-visual card">
+                <h3 style="text-align: center; margin-bottom: 20px; color: var(--dark-text);">Junction Status</h3>
+                <div class="junction-container">
+                    <!-- North -->
+                    <div></div>
+                    <div class="direction-light" id="NORTH">
+                        <span class="direction-icon" id="NORTHIcon"></span>
+                        <div class="light-indicator" id="NORTHLight"></div>
+                        <div class="direction-label">NORTH</div>
+                        <div class="vehicle-count" id="NORTHCount">0 vehicles</div>
+                    </div>
+                    <div></div>
+                    
+                    <!-- West, Center, East -->
+                    <div class="direction-light" id="WEST">
+                        <span class="direction-icon" id="WESTIcon"></span>
+                        <div class="light-indicator" id="WESTLight"></div>
+                        <div class="direction-label">WEST</div>
+                        <div class="vehicle-count" id="WESTCount">0 vehicles</div>
+                    </div>
+                    <div class="center-junction">JUNCTION</div>
+                    <div class="direction-light" id="EAST">
+                        <span class="direction-icon" id="EASTIcon"></span>
+                        <div class="light-indicator" id="EASTLight"></div>
+                        <div class="direction-label">EAST</div>
+                        <div class="vehicle-count" id="EASTCount">0 vehicles</div>
+                    </div>
+                    
+                    <!-- South -->
+                    <div></div>
+                    <div class="direction-light" id="SOUTH">
+                        <span class="direction-icon" id="SOUTHIcon"></span>
+                        <div class="light-indicator" id="SOUTHLight"></div>
+                        <div class="direction-label">SOUTH</div>
+                        <div class="vehicle-count" id="SOUTHCount">0 vehicles</div>
+                    </div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="side-panel">
+            <div class="alerts-panel card">
+                <div class="panel-header">
+                    <span>Active Alerts</span>
+                    <span class="badge alert-badge" id="alertBadge">0</span>
+                </div>
+                <div id="alertsContainer">
+                    <div class="loading">No active alerts</div>
+                </div>
+            </div>
+
+            <div class="logs-panel card">
+                <div class="panel-header" style="justify-content: space-between;">
+                    <span>System Logs</span>
+                    <button onclick="clearLogs()" style="background: #6c757d; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 0.8em;">Clear</button>
+                </div>
+                <div id="logsContainer">
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        Loading system data...
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        // Use a more descriptive name for the global state
+        let currentSystemState = {
+            isOnline: false,
+            logs: []
+        };
+
+        const API_URL = 'http://localhost:8000/logs';
+        const FETCH_INTERVAL = 2000; // Match backend's 2-second cycle
+
+        function updateUI() {
+            // Find the most recent, unique log for each direction
+            const latestStateByDirection = new Map();
+            for (const log of currentSystemState.logs) {
+                if (!latestStateByDirection.has(log.direction)) {
+                    latestStateByDirection.set(log.direction, log);
+                }
+            }
+
+            // If we don't have data for all 4 directions yet, wait.
+            if (latestStateByDirection.size < 4) return;
+            
+            const directionStates = Array.from(latestStateByDirection.values());
+            const latestCycle = Math.max(...directionStates.map(s => s.cycle));
+            
+            // --- 1. Update Top Metrics ---
+            const totalVehicles = directionStates.reduce((sum, state) => sum + state.vehicle_count, 0);
+            const activeAlerts = directionStates.filter(s => s.is_accident || s.is_emergency).length;
+            const congestedLanes = directionStates.filter(s => s.alerts.some(a => a.includes('Congestion'))).length;
+
+            document.getElementById('totalVehicles').textContent = totalVehicles;
+            document.getElementById('activeAlerts').textContent = activeAlerts;
+            document.getElementById('currentCycle').textContent = latestCycle;
+            document.getElementById('congestion').textContent = congestedLanes;
+
+            // --- 2. Update Junction Visual ---
+            latestStateByDirection.forEach((state, direction) => {
+                const containerEl = document.getElementById(direction);
+                const countEl = document.getElementById(direction + 'Count');
+                const iconEl = document.getElementById(direction + 'Icon');
+                
+                countEl.textContent = `${state.vehicle_count} vehicles`;
+                
+                // Determine container class with priority: Accident > Emergency > Default
+                containerEl.className = 'direction-light'; // Reset class
+                iconEl.textContent = ''; // Clear icon
+                
+                if (state.is_accident) {
+                    containerEl.classList.add('accident');
+                    iconEl.textContent = '💥';
+                } else if (state.is_emergency) {
+                    containerEl.classList.add('emergency');
+                    iconEl.textContent = '🚑';
+                }
+            });
+
+            // --- 3. Update Alerts Panel ---
+            const alertsContainer = document.getElementById('alertsContainer');
+            const alertBadge = document.getElementById('alertBadge');
+            const currentAlerts = directionStates
+                .filter(s => s.is_accident || s.is_emergency)
+                .map(s => ({
+                    type: s.is_accident ? 'ACCIDENT' : 'EMERGENCY',
+                    direction: s.direction
+                }));
+
+            alertBadge.textContent = currentAlerts.length;
+            if (currentAlerts.length === 0) {
+                alertsContainer.innerHTML = '<div class="loading">No active alerts</div>';
+            } else {
+                alertsContainer.innerHTML = currentAlerts.map(alert => `
+                    <div class="alert-item ${alert.type.toLowerCase()}">
+                        <strong>${alert.type}</strong> - ${alert.direction}
+                    </div>
+                `).join('');
+            }
+
+            // --- 4. Update Logs Panel ---
+            const logsContainer = document.getElementById('logsContainer');
+            if (currentSystemState.logs.length === 0) {
+                logsContainer.innerHTML = '<div class="loading">Awaiting data...</div>';
+            } else {
+                // Show the last 50 log entries
+                logsContainer.innerHTML = currentSystemState.logs.slice(0, 50).map(log => `
+                    <div class="log-entry">
+                        <div class="log-header">
+                            <span class="log-cycle">Cycle ${log.cycle}</span>
+                            <span class="log-direction">${log.direction}</span>
+                        </div>
+                        <div class="log-vision">${log.vision_response}</div>
+                        <div class="log-stats">
+                            <span class="vehicle-count-badge">${log.vehicle_count} vehicles</span>
+                            <div class="log-alerts-container">
+                                ${log.is_accident ? '<span class="log-icon" title="Accident">💥</span>' : ''}
+                                ${log.is_emergency ? '<span class="log-icon" title="Emergency">🚑</span>' : ''}
+                                ${log.alerts.some(a => a.includes('Congestion')) ? '<span class="log-icon" title="Congestion">⚠️</span>' : ''}
+                            </div>
+                        </div>
+                    </div>
+                `).join('');
+            }
+        }
+
+        function setSystemStatus(online) {
+            const statusEl = document.getElementById('systemStatus');
+            currentSystemState.isOnline = online;
+            statusEl.className = `status-indicator ${online ? 'status-online' : 'status-offline'}`;
+        }
+
+        async function fetchAndUpdateData() {
+            try {
+                const response = await fetch(API_URL);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                
+                setSystemStatus(true);
+                currentSystemState.logs = data.logs; // The backend already sends newest first
+                
+                updateUI();
+                
+            } catch (error) {
+                console.error('Failed to fetch logs:', error);
+                setSystemStatus(false);
+                // Don't clear data on a single failed fetch, so the last known state remains.
+            }
+        }
+
+        function clearLogs() {
+            currentSystemState.logs = [];
+            updateUI(); // Re-render with empty logs
+            document.getElementById('logsContainer').innerHTML = '<div class="loading">Logs cleared by user.</div>';
+        }
+
+        // --- Initial Setup ---
+        window.onload = () => {
+            fetchAndUpdateData();
+            setInterval(fetchAndUpdateData, FETCH_INTERVAL);
+        };
+    </script>
 </body>
-</html> 
+</html>

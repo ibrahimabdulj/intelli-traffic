@@ -284,14 +284,6 @@
         "documentation": {}
     },
     {
-        "label": "render_template_string",
-        "importPath": "flask",
-        "description": "flask",
-        "isExtraImport": true,
-        "detail": "flask",
-        "documentation": {}
-    },
-    {
         "label": "jsonify",
         "importPath": "flask",
         "description": "flask",
@@ -316,14 +308,6 @@
         "documentation": {}
     },
     {
-        "label": "EmergencyDetector",
-        "importPath": "detection.emergency",
-        "description": "detection.emergency",
-        "isExtraImport": true,
-        "detail": "detection.emergency",
-        "documentation": {}
-    },
-    {
         "label": "AccidentDetector",
         "importPath": "detection.accident",
         "description": "detection.accident",
@@ -337,22 +321,6 @@
         "description": "detection.accident",
         "isExtraImport": true,
         "detail": "detection.accident",
-        "documentation": {}
-    },
-    {
-        "label": "AccidentDetector",
-        "importPath": "detection.accident",
-        "description": "detection.accident",
-        "isExtraImport": true,
-        "detail": "detection.accident",
-        "documentation": {}
-    },
-    {
-        "label": "VehicleCounter",
-        "importPath": "detection.vehicle_counter",
-        "description": "detection.vehicle_counter",
-        "isExtraImport": true,
-        "detail": "detection.vehicle_counter",
         "documentation": {}
     },
     {
@@ -396,22 +364,6 @@
         "documentation": {}
     },
     {
-        "label": "AlertSystem",
-        "importPath": "logic.alert_system",
-        "description": "logic.alert_system",
-        "isExtraImport": true,
-        "detail": "logic.alert_system",
-        "documentation": {}
-    },
-    {
-        "label": "DecisionModule",
-        "importPath": "logic.decision",
-        "description": "logic.decision",
-        "isExtraImport": true,
-        "detail": "logic.decision",
-        "documentation": {}
-    },
-    {
         "label": "DecisionModule",
         "importPath": "logic.decision",
         "description": "logic.decision",
@@ -452,6 +404,15 @@
         "importPath": "random",
         "description": "random",
         "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "math",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "math",
+        "description": "math",
+        "detail": "math",
         "documentation": {}
     },
     {
@@ -742,29 +703,20 @@
         "documentation": {}
     },
     {
-        "label": "MockVideoCapture",
-        "kind": 6,
-        "importPath": "simulate_frontend",
-        "description": "simulate_frontend",
-        "peekOfCode": "class MockVideoCapture:\n    def __init__(self, port):\n        self.port = port\n        self.opened = True\n    def isOpened(self):\n        return self.opened\n    def read(self):\n        return True, f\"frame_from_camera_{self.port}\"\n    def release(self):\n        self.opened = False",
-        "detail": "simulate_frontend",
-        "documentation": {}
-    },
-    {
-        "label": "MockVisionModelClient",
-        "kind": 6,
-        "importPath": "simulate_frontend",
-        "description": "simulate_frontend",
-        "peekOfCode": "class MockVisionModelClient:\n    def __init__(self, api_key):\n        self.api_key = api_key\n    def analyze_frame(self, frame, direction):\n        responses = [\n            f\"5 cars, no emergency vehicles, light traffic, no accident\",\n            f\"12 vehicles, ambulance detected, heavy traffic, no accident\",\n            f\"3 cars, no emergency vehicles, moderate traffic, accident detected: collision\",\n            f\"15 vehicles, no emergency vehicles, heavy traffic, no accident\",\n        ]",
-        "detail": "simulate_frontend",
-        "documentation": {}
-    },
-    {
         "label": "MockTrafficLight",
         "kind": 6,
         "importPath": "simulate_frontend",
         "description": "simulate_frontend",
-        "peekOfCode": "class MockTrafficLight(TrafficLight):\n    def setup(self):\n        pass\n    def set_red(self):\n        pass\n    def set_yellow(self):\n        pass\n    def set_green(self):\n        pass\n    def turn_off(self):",
+        "peekOfCode": "class MockTrafficLight(TrafficLight):\n    def setup(self): pass\n    def set_red(self): pass\n    def set_yellow(self): pass\n    def set_green(self): pass\n    def turn_off(self): pass\n# Thread-safe storage for simulation logs\nsimulation_logs = deque(maxlen=200) # Increased maxlen for better history\n# --- New Dynamic Simulation Core ---\nclass LaneState:",
+        "detail": "simulate_frontend",
+        "documentation": {}
+    },
+    {
+        "label": "LaneState",
+        "kind": 6,
+        "importPath": "simulate_frontend",
+        "description": "simulate_frontend",
+        "peekOfCode": "class LaneState:\n    \"\"\"Holds the dynamic state for a single traffic lane.\"\"\"\n    def __init__(self, direction):\n        self.direction = direction\n        self.vehicle_count = 0\n        self.has_accident = False\n        self.accident_timer = 0  # How many cycles the accident lasts\n        self.has_emergency = False\n        self.emergency_timer = 0 # How many cycles the emergency vehicle is present\nclass SimulatedTrafficSystem:",
         "detail": "simulate_frontend",
         "documentation": {}
     },
@@ -773,7 +725,7 @@
         "kind": 6,
         "importPath": "simulate_frontend",
         "description": "simulate_frontend",
-        "peekOfCode": "class SimulatedTrafficSystem:\n    def __init__(self):\n        self.traffic_lights = {\n            Direction.NORTH: MockTrafficLight(2, 3, 4),\n            Direction.EAST: MockTrafficLight(17, 27, 22),\n            Direction.SOUTH: MockTrafficLight(10, 9, 11),\n            Direction.WEST: MockTrafficLight(5, 6, 13)\n        }\n        for light in self.traffic_lights.values():\n            light.setup()",
+        "peekOfCode": "class SimulatedTrafficSystem:\n    \"\"\"\n    A more dynamic and realistic traffic simulation backend.\n    \"\"\"\n    # --- Simulation Tuning Parameters ---\n    # Probabilities are per-cycle, per-lane\n    ACCIDENT_PROBABILITY = 0.005  # 0.5% chance of an accident\n    EMERGENCY_PROBABILITY = 0.01 # 1% chance of an emergency vehicle\n    # Durations are in simulation cycles\n    ACCIDENT_DURATION = 25      # An accident blocks a lane for 25 cycles",
         "detail": "simulate_frontend",
         "documentation": {}
     },
@@ -782,7 +734,16 @@
         "kind": 2,
         "importPath": "simulate_frontend",
         "description": "simulate_frontend",
-        "peekOfCode": "def logs():\n    return jsonify({\"logs\": list(simulation_logs)})\n# Start simulation in background thread\ndef start_simulation():\n    sim = SimulatedTrafficSystem()\n    t = threading.Thread(target=sim.run_simulation, kwargs={\"cycles\":1000, \"delay\":1}, daemon=True)\n    t.start()\nif __name__ == \"__main__\":\n    logging.basicConfig(level=logging.INFO)\n    start_simulation()",
+        "peekOfCode": "def logs():\n    return jsonify({\"logs\": list(simulation_logs)})\n@app.route('/')\ndef index():\n    # A simple status page to confirm the server is running\n    return \"<h1>Traffic Simulation Backend is Running</h1><p>Access logs at the <a href='/logs'>/logs</a> endpoint.</p>\"\ndef start_simulation():\n    sim = SimulatedTrafficSystem()\n    # Run the simulation in a daemon thread so it stops when the main app stops\n    t = threading.Thread(target=sim.run_simulation, daemon=True)",
+        "detail": "simulate_frontend",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "simulate_frontend",
+        "description": "simulate_frontend",
+        "peekOfCode": "def index():\n    # A simple status page to confirm the server is running\n    return \"<h1>Traffic Simulation Backend is Running</h1><p>Access logs at the <a href='/logs'>/logs</a> endpoint.</p>\"\ndef start_simulation():\n    sim = SimulatedTrafficSystem()\n    # Run the simulation in a daemon thread so it stops when the main app stops\n    t = threading.Thread(target=sim.run_simulation, daemon=True)\n    t.start()\nif __name__ == \"__main__\":\n    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')",
         "detail": "simulate_frontend",
         "documentation": {}
     },
@@ -791,7 +752,7 @@
         "kind": 2,
         "importPath": "simulate_frontend",
         "description": "simulate_frontend",
-        "peekOfCode": "def start_simulation():\n    sim = SimulatedTrafficSystem()\n    t = threading.Thread(target=sim.run_simulation, kwargs={\"cycles\":1000, \"delay\":1}, daemon=True)\n    t.start()\nif __name__ == \"__main__\":\n    logging.basicConfig(level=logging.INFO)\n    start_simulation()\n    app.run(debug=True, port=8000)",
+        "peekOfCode": "def start_simulation():\n    sim = SimulatedTrafficSystem()\n    # Run the simulation in a daemon thread so it stops when the main app stops\n    t = threading.Thread(target=sim.run_simulation, daemon=True)\n    t.start()\nif __name__ == \"__main__\":\n    logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')\n    start_simulation()\n    # Set use_reloader=False to prevent the simulation from running twice in debug mode\n    app.run(debug=True, port=8000, use_reloader=False)",
         "detail": "simulate_frontend",
         "documentation": {}
     },
@@ -800,7 +761,7 @@
         "kind": 5,
         "importPath": "simulate_frontend",
         "description": "simulate_frontend",
-        "peekOfCode": "MockGPIOModule = types.ModuleType('RPi.GPIO')\nsetattr(MockGPIOModule, 'BCM', 'BCM')\nsetattr(MockGPIOModule, 'OUT', 'OUT')\nsetattr(MockGPIOModule, 'HIGH', 1)\nsetattr(MockGPIOModule, 'LOW', 0)\nsetattr(MockGPIOModule, 'setmode', lambda mode: None)\nsetattr(MockGPIOModule, 'setup', lambda pin, mode: None)\nsetattr(MockGPIOModule, 'output', lambda pin, value: None)\nsetattr(MockGPIOModule, 'cleanup', lambda: None)\nsys.modules['RPi.GPIO'] = MockGPIOModule",
+        "peekOfCode": "MockGPIOModule = types.ModuleType('RPi.GPIO')\nsys.modules['RPi.GPIO'] = MockGPIOModule\n# --- Mock Dependencies (Not used in the new dynamic simulation but kept for context) ---\nfrom logic.direction import Direction\nfrom components.traffic_lights import TrafficLight\n# The following imports are now effectively replaced by the new simulation logic\n# from detection.vehicle_counter import VehicleCounter\n# from detection.accident import AccidentDetector\n# from detection.emergency import EmergencyDetector\n# from logic.alert_system import AlertSystem",
         "detail": "simulate_frontend",
         "documentation": {}
     },
@@ -809,25 +770,7 @@
         "kind": 5,
         "importPath": "simulate_frontend",
         "description": "simulate_frontend",
-        "peekOfCode": "sys.modules['RPi.GPIO'] = MockGPIOModule\nimport logging\nimport random\nimport time\nimport threading\nfrom flask import Flask, render_template_string, jsonify\nfrom flask_cors import CORS\nfrom enum import Enum\n# Mock Camera\nclass MockVideoCapture:",
-        "detail": "simulate_frontend",
-        "documentation": {}
-    },
-    {
-        "label": "cv2",
-        "kind": 5,
-        "importPath": "simulate_frontend",
-        "description": "simulate_frontend",
-        "peekOfCode": "cv2 = types.SimpleNamespace()\ncv2.VideoCapture = MockVideoCapture\n# Mock VisionModelClient\nclass MockVisionModelClient:\n    def __init__(self, api_key):\n        self.api_key = api_key\n    def analyze_frame(self, frame, direction):\n        responses = [\n            f\"5 cars, no emergency vehicles, light traffic, no accident\",\n            f\"12 vehicles, ambulance detected, heavy traffic, no accident\",",
-        "detail": "simulate_frontend",
-        "documentation": {}
-    },
-    {
-        "label": "cv2.VideoCapture",
-        "kind": 5,
-        "importPath": "simulate_frontend",
-        "description": "simulate_frontend",
-        "peekOfCode": "cv2.VideoCapture = MockVideoCapture\n# Mock VisionModelClient\nclass MockVisionModelClient:\n    def __init__(self, api_key):\n        self.api_key = api_key\n    def analyze_frame(self, frame, direction):\n        responses = [\n            f\"5 cars, no emergency vehicles, light traffic, no accident\",\n            f\"12 vehicles, ambulance detected, heavy traffic, no accident\",\n            f\"3 cars, no emergency vehicles, moderate traffic, accident detected: collision\",",
+        "peekOfCode": "sys.modules['RPi.GPIO'] = MockGPIOModule\n# --- Mock Dependencies (Not used in the new dynamic simulation but kept for context) ---\nfrom logic.direction import Direction\nfrom components.traffic_lights import TrafficLight\n# The following imports are now effectively replaced by the new simulation logic\n# from detection.vehicle_counter import VehicleCounter\n# from detection.accident import AccidentDetector\n# from detection.emergency import EmergencyDetector\n# from logic.alert_system import AlertSystem\n# from logic.decision import DecisionModule",
         "detail": "simulate_frontend",
         "documentation": {}
     },
@@ -836,7 +779,7 @@
         "kind": 5,
         "importPath": "simulate_frontend",
         "description": "simulate_frontend",
-        "peekOfCode": "simulation_logs = deque(maxlen=100)\nclass SimulatedTrafficSystem:\n    def __init__(self):\n        self.traffic_lights = {\n            Direction.NORTH: MockTrafficLight(2, 3, 4),\n            Direction.EAST: MockTrafficLight(17, 27, 22),\n            Direction.SOUTH: MockTrafficLight(10, 9, 11),\n            Direction.WEST: MockTrafficLight(5, 6, 13)\n        }\n        for light in self.traffic_lights.values():",
+        "peekOfCode": "simulation_logs = deque(maxlen=200) # Increased maxlen for better history\n# --- New Dynamic Simulation Core ---\nclass LaneState:\n    \"\"\"Holds the dynamic state for a single traffic lane.\"\"\"\n    def __init__(self, direction):\n        self.direction = direction\n        self.vehicle_count = 0\n        self.has_accident = False\n        self.accident_timer = 0  # How many cycles the accident lasts\n        self.has_emergency = False",
         "detail": "simulate_frontend",
         "documentation": {}
     },
@@ -845,7 +788,7 @@
         "kind": 5,
         "importPath": "simulate_frontend",
         "description": "simulate_frontend",
-        "peekOfCode": "app = Flask(__name__)\nCORS(app)  # Enable CORS for all routes\n@app.route('/logs')\ndef logs():\n    return jsonify({\"logs\": list(simulation_logs)})\n# Start simulation in background thread\ndef start_simulation():\n    sim = SimulatedTrafficSystem()\n    t = threading.Thread(target=sim.run_simulation, kwargs={\"cycles\":1000, \"delay\":1}, daemon=True)\n    t.start()",
+        "peekOfCode": "app = Flask(__name__)\nCORS(app)\n@app.route('/logs')\ndef logs():\n    return jsonify({\"logs\": list(simulation_logs)})\n@app.route('/')\ndef index():\n    # A simple status page to confirm the server is running\n    return \"<h1>Traffic Simulation Backend is Running</h1><p>Access logs at the <a href='/logs'>/logs</a> endpoint.</p>\"\ndef start_simulation():",
         "detail": "simulate_frontend",
         "documentation": {}
     },
