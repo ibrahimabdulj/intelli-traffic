@@ -1,0 +1,915 @@
+[
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "logging",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "logging",
+        "description": "logging",
+        "detail": "logging",
+        "documentation": {}
+    },
+    {
+        "label": "Direction",
+        "importPath": "logic.direction",
+        "description": "logic.direction",
+        "isExtraImport": true,
+        "detail": "logic.direction",
+        "documentation": {}
+    },
+    {
+        "label": "Direction",
+        "importPath": "logic.direction",
+        "description": "logic.direction",
+        "isExtraImport": true,
+        "detail": "logic.direction",
+        "documentation": {}
+    },
+    {
+        "label": "Direction",
+        "importPath": "logic.direction",
+        "description": "logic.direction",
+        "isExtraImport": true,
+        "detail": "logic.direction",
+        "documentation": {}
+    },
+    {
+        "label": "Direction",
+        "importPath": "logic.direction",
+        "description": "logic.direction",
+        "isExtraImport": true,
+        "detail": "logic.direction",
+        "documentation": {}
+    },
+    {
+        "label": "Direction",
+        "importPath": "logic.direction",
+        "description": "logic.direction",
+        "isExtraImport": true,
+        "detail": "logic.direction",
+        "documentation": {}
+    },
+    {
+        "label": "Direction",
+        "importPath": "logic.direction",
+        "description": "logic.direction",
+        "isExtraImport": true,
+        "detail": "logic.direction",
+        "documentation": {}
+    },
+    {
+        "label": "Direction",
+        "importPath": "logic.direction",
+        "description": "logic.direction",
+        "isExtraImport": true,
+        "detail": "logic.direction",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "requests",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "requests",
+        "description": "requests",
+        "detail": "requests",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "Enum",
+        "importPath": "enum",
+        "description": "enum",
+        "isExtraImport": true,
+        "detail": "enum",
+        "documentation": {}
+    },
+    {
+        "label": "TrafficLight",
+        "importPath": "components.traffic_lights",
+        "description": "components.traffic_lights",
+        "isExtraImport": true,
+        "detail": "components.traffic_lights",
+        "documentation": {}
+    },
+    {
+        "label": "TrafficLight",
+        "importPath": "components.traffic_lights",
+        "description": "components.traffic_lights",
+        "isExtraImport": true,
+        "detail": "components.traffic_lights",
+        "documentation": {}
+    },
+    {
+        "label": "TrafficLight",
+        "importPath": "components.traffic_lights",
+        "description": "components.traffic_lights",
+        "isExtraImport": true,
+        "detail": "components.traffic_lights",
+        "documentation": {}
+    },
+    {
+        "label": "TrafficLight",
+        "importPath": "components.traffic_lights",
+        "description": "components.traffic_lights",
+        "isExtraImport": true,
+        "detail": "components.traffic_lights",
+        "documentation": {}
+    },
+    {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
+        "label": "cv2",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "cv2",
+        "description": "cv2",
+        "detail": "cv2",
+        "documentation": {}
+    },
+    {
+        "label": "numpy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "numpy",
+        "description": "numpy",
+        "detail": "numpy",
+        "documentation": {}
+    },
+    {
+        "label": "threading",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "threading",
+        "description": "threading",
+        "detail": "threading",
+        "documentation": {}
+    },
+    {
+        "label": "queue",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "queue",
+        "description": "queue",
+        "detail": "queue",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "serial",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "serial",
+        "description": "serial",
+        "detail": "serial",
+        "documentation": {}
+    },
+    {
+        "label": "RPi.GPIO",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "RPi.GPIO",
+        "description": "RPi.GPIO",
+        "detail": "RPi.GPIO",
+        "documentation": {}
+    },
+    {
+        "label": "defaultdict",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "deque",
+        "importPath": "collections",
+        "description": "collections",
+        "isExtraImport": true,
+        "detail": "collections",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Response",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template_string",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "jsonify",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "EmergencyDetector",
+        "importPath": "detection.emergency",
+        "description": "detection.emergency",
+        "isExtraImport": true,
+        "detail": "detection.emergency",
+        "documentation": {}
+    },
+    {
+        "label": "EmergencyDetector",
+        "importPath": "detection.emergency",
+        "description": "detection.emergency",
+        "isExtraImport": true,
+        "detail": "detection.emergency",
+        "documentation": {}
+    },
+    {
+        "label": "EmergencyDetector",
+        "importPath": "detection.emergency",
+        "description": "detection.emergency",
+        "isExtraImport": true,
+        "detail": "detection.emergency",
+        "documentation": {}
+    },
+    {
+        "label": "AccidentDetector",
+        "importPath": "detection.accident",
+        "description": "detection.accident",
+        "isExtraImport": true,
+        "detail": "detection.accident",
+        "documentation": {}
+    },
+    {
+        "label": "AccidentDetector",
+        "importPath": "detection.accident",
+        "description": "detection.accident",
+        "isExtraImport": true,
+        "detail": "detection.accident",
+        "documentation": {}
+    },
+    {
+        "label": "AccidentDetector",
+        "importPath": "detection.accident",
+        "description": "detection.accident",
+        "isExtraImport": true,
+        "detail": "detection.accident",
+        "documentation": {}
+    },
+    {
+        "label": "VehicleCounter",
+        "importPath": "detection.vehicle_counter",
+        "description": "detection.vehicle_counter",
+        "isExtraImport": true,
+        "detail": "detection.vehicle_counter",
+        "documentation": {}
+    },
+    {
+        "label": "VehicleCounter",
+        "importPath": "detection.vehicle_counter",
+        "description": "detection.vehicle_counter",
+        "isExtraImport": true,
+        "detail": "detection.vehicle_counter",
+        "documentation": {}
+    },
+    {
+        "label": "VehicleCounter",
+        "importPath": "detection.vehicle_counter",
+        "description": "detection.vehicle_counter",
+        "isExtraImport": true,
+        "detail": "detection.vehicle_counter",
+        "documentation": {}
+    },
+    {
+        "label": "VisionModelClient",
+        "importPath": "vision.client",
+        "description": "vision.client",
+        "isExtraImport": true,
+        "detail": "vision.client",
+        "documentation": {}
+    },
+    {
+        "label": "AlertSystem",
+        "importPath": "logic.alert_system",
+        "description": "logic.alert_system",
+        "isExtraImport": true,
+        "detail": "logic.alert_system",
+        "documentation": {}
+    },
+    {
+        "label": "AlertSystem",
+        "importPath": "logic.alert_system",
+        "description": "logic.alert_system",
+        "isExtraImport": true,
+        "detail": "logic.alert_system",
+        "documentation": {}
+    },
+    {
+        "label": "AlertSystem",
+        "importPath": "logic.alert_system",
+        "description": "logic.alert_system",
+        "isExtraImport": true,
+        "detail": "logic.alert_system",
+        "documentation": {}
+    },
+    {
+        "label": "DecisionModule",
+        "importPath": "logic.decision",
+        "description": "logic.decision",
+        "isExtraImport": true,
+        "detail": "logic.decision",
+        "documentation": {}
+    },
+    {
+        "label": "DecisionModule",
+        "importPath": "logic.decision",
+        "description": "logic.decision",
+        "isExtraImport": true,
+        "detail": "logic.decision",
+        "documentation": {}
+    },
+    {
+        "label": "DecisionModule",
+        "importPath": "logic.decision",
+        "description": "logic.decision",
+        "isExtraImport": true,
+        "detail": "logic.decision",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "types",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "types",
+        "description": "types",
+        "detail": "types",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "CORS",
+        "importPath": "flask_cors",
+        "description": "flask_cors",
+        "isExtraImport": true,
+        "detail": "flask_cors",
+        "documentation": {}
+    },
+    {
+        "label": "TrafficLight",
+        "kind": 6,
+        "importPath": "components.traffic_lights",
+        "description": "components.traffic_lights",
+        "peekOfCode": "class TrafficLight:\n    \"\"\"Controls traffic light signals for a single direction\"\"\"\n    def __init__(self, red_pin, yellow_pin, green_pin):\n        self.red_pin = red_pin\n        self.yellow_pin = yellow_pin\n        self.green_pin = green_pin\n    def setup(self):\n        \"\"\"Initialize GPIO pins\"\"\"\n        GPIO.setup(self.red_pin, GPIO.OUT)\n        GPIO.setup(self.yellow_pin, GPIO.OUT)",
+        "detail": "components.traffic_lights",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "components.traffic_lights",
+        "description": "components.traffic_lights",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass TrafficLight:\n    \"\"\"Controls traffic light signals for a single direction\"\"\"\n    def __init__(self, red_pin, yellow_pin, green_pin):\n        self.red_pin = red_pin\n        self.yellow_pin = yellow_pin\n        self.green_pin = green_pin\n    def setup(self):\n        \"\"\"Initialize GPIO pins\"\"\"\n        GPIO.setup(self.red_pin, GPIO.OUT)",
+        "detail": "components.traffic_lights",
+        "documentation": {}
+    },
+    {
+        "label": "AccidentDetector",
+        "kind": 6,
+        "importPath": "detection.accident",
+        "description": "detection.accident",
+        "peekOfCode": "class AccidentDetector:\n    \"\"\"Detects potential accidents using vision model\"\"\"\n    def __init__(self, confidence_threshold=0.6):\n        self.confidence_threshold = confidence_threshold\n        self.accident_history = []\n        self.history_length = 5  # Number of frames to keep in history\n    def detect_accident(self, frame, vision_response):\n        \"\"\"\n        Analyzes vision model response to detect potential accidents\n        Returns True if accident indicators are detected",
+        "detail": "detection.accident",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "detection.accident",
+        "description": "detection.accident",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass AccidentDetector:\n    \"\"\"Detects potential accidents using vision model\"\"\"\n    def __init__(self, confidence_threshold=0.6):\n        self.confidence_threshold = confidence_threshold\n        self.accident_history = []\n        self.history_length = 5  # Number of frames to keep in history\n    def detect_accident(self, frame, vision_response):\n        \"\"\"\n        Analyzes vision model response to detect potential accidents",
+        "detail": "detection.accident",
+        "documentation": {}
+    },
+    {
+        "label": "EmergencyDetector",
+        "kind": 6,
+        "importPath": "detection.emergency",
+        "description": "detection.emergency",
+        "peekOfCode": "class EmergencyDetector:\n    \"\"\"Detects emergency vehicles using vision model\"\"\"\n    def __init__(self, confidence_threshold=0.7):\n        self.confidence_threshold = confidence_threshold\n    def detect_emergency_vehicle(self, frame, vision_response):\n        \"\"\"\n        Analyzes vision model response to detect emergency vehicles\n        Returns True if emergency vehicle is detected with confidence above threshold\n        \"\"\"\n        if not vision_response:",
+        "detail": "detection.emergency",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "detection.emergency",
+        "description": "detection.emergency",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass EmergencyDetector:\n    \"\"\"Detects emergency vehicles using vision model\"\"\"\n    def __init__(self, confidence_threshold=0.7):\n        self.confidence_threshold = confidence_threshold\n    def detect_emergency_vehicle(self, frame, vision_response):\n        \"\"\"\n        Analyzes vision model response to detect emergency vehicles\n        Returns True if emergency vehicle is detected with confidence above threshold\n        \"\"\"",
+        "detail": "detection.emergency",
+        "documentation": {}
+    },
+    {
+        "label": "VehicleCounter",
+        "kind": 6,
+        "importPath": "detection.vehicle_counter",
+        "description": "detection.vehicle_counter",
+        "peekOfCode": "class VehicleCounter:\n    \"\"\"Counts vehicles in each direction using vision model\"\"\"\n    def __init__(self):\n        self.vehicle_counts = {direction: 0 for direction in Direction}\n        self.count_history = {direction: [] for direction in Direction}\n        self.history_length = 3  # Number of frames to keep for smoothing\n    def extract_count(self, vision_response):\n        \"\"\"Extract vehicle count from vision model response\"\"\"\n        if not vision_response:\n            return 0",
+        "detail": "detection.vehicle_counter",
+        "documentation": {}
+    },
+    {
+        "label": "AlertSystem",
+        "kind": 6,
+        "importPath": "logic.alert_system",
+        "description": "logic.alert_system",
+        "peekOfCode": "class AlertSystem:\n    \"\"\"Handles traffic alerts for accident, emergency, congestion etc.\"\"\"\n    def __init__(self, gsm_port=None):\n        self.gsm_port = gsm_port\n        self.gsm_connected = False\n        self.emergency_contacts = [\"+2348107471505\"]\n        self.supabase_url = os.getenv(\"SUPABASE_URL\")\n        self.supabase_api_key = os.getenv(\"SUPABASE_API_KEY\")\n        self.supabase_table = os.getenv(\"SUPABASE_TABLE_NAME\", \"traffic_alerts\")\n        if gsm_port:",
+        "detail": "logic.alert_system",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "logic.alert_system",
+        "description": "logic.alert_system",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nload_dotenv()\nclass AlertSystem:\n    \"\"\"Handles traffic alerts for accident, emergency, congestion etc.\"\"\"\n    def __init__(self, gsm_port=None):\n        self.gsm_port = gsm_port\n        self.gsm_connected = False\n        self.emergency_contacts = [\"+2348107471505\"]\n        self.supabase_url = os.getenv(\"SUPABASE_URL\")\n        self.supabase_api_key = os.getenv(\"SUPABASE_API_KEY\")",
+        "detail": "logic.alert_system",
+        "documentation": {}
+    },
+    {
+        "label": "DecisionModule",
+        "kind": 6,
+        "importPath": "logic.decision",
+        "description": "logic.decision",
+        "peekOfCode": "class DecisionModule:\n    \"\"\"\n    Processes perception data and makes traffic control decisions\n    \"\"\"\n    def __init__(self, traffic_lights):\n        self.traffic_lights = traffic_lights  # Dictionary of direction -> TrafficLight\n        self.current_green = Direction.NORTH  # Start with North as green\n        self.min_green_time = 20  # Minimum green time in seconds\n        self.yellow_time = 3  # Yellow light duration in seconds\n        self.last_switch_time = time.time()",
+        "detail": "logic.decision",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "logic.decision",
+        "description": "logic.decision",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass DecisionModule:\n    \"\"\"\n    Processes perception data and makes traffic control decisions\n    \"\"\"\n    def __init__(self, traffic_lights):\n        self.traffic_lights = traffic_lights  # Dictionary of direction -> TrafficLight\n        self.current_green = Direction.NORTH  # Start with North as green\n        self.min_green_time = 20  # Minimum green time in seconds\n        self.yellow_time = 3  # Yellow light duration in seconds",
+        "detail": "logic.decision",
+        "documentation": {}
+    },
+    {
+        "label": "Direction",
+        "kind": 6,
+        "importPath": "logic.direction",
+        "description": "logic.direction",
+        "peekOfCode": "class Direction(Enum):\n    NORTH = 0\n    EAST = 1\n    SOUTH = 2\n    WEST = 3",
+        "detail": "logic.direction",
+        "documentation": {}
+    },
+    {
+        "label": "VisionModelClient",
+        "kind": 6,
+        "importPath": "vision.client",
+        "description": "vision.client",
+        "peekOfCode": "class VisionModelClient:\n    \"\"\"Client to interact with a Vision Language Model API\"\"\"\n    def __init__(self, api_url=None, api_key=None, model=\"gpt-4o\"):\n        self.api_url = api_url or \"https://api.openai.com/v1/chat/completions\"\n        self.api_key = api_key\n        self.model = model\n    def encode_image(self, image_path):\n        \"\"\"Encode image to base64 for API transmission\"\"\"\n        with open(image_path, \"rb\") as image_file:\n            return base64.b64encode(image_file.read()).decode('utf-8')",
+        "detail": "vision.client",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "vision.client",
+        "description": "vision.client",
+        "peekOfCode": "logger = logging.getLogger(__name__)\nclass VisionModelClient:\n    \"\"\"Client to interact with a Vision Language Model API\"\"\"\n    def __init__(self, api_url=None, api_key=None, model=\"gpt-4o\"):\n        self.api_url = api_url or \"https://api.openai.com/v1/chat/completions\"\n        self.api_key = api_key\n        self.model = model\n    def encode_image(self, image_path):\n        \"\"\"Encode image to base64 for API transmission\"\"\"\n        with open(image_path, \"rb\") as image_file:",
+        "detail": "vision.client",
+        "documentation": {}
+    },
+    {
+        "label": "IntelligentTrafficSystem",
+        "kind": 6,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "class IntelligentTrafficSystem:\n    def __init__(self, camera_ports, api_key, gsm_port=None):\n        GPIO.setmode(GPIO.BCM)\n        self.cameras = {}\n        for direction, port in camera_ports.items():\n            cap = cv2.VideoCapture(port)\n            if cap.isOpened():\n                self.cameras[direction] = cap\n            else:\n                logger.error(f\"Failed to open camera for {direction.name}\")",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "generate_frames",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def generate_frames():\n    while True:\n        success, frame = camera.read()\n        if not success:\n            break\n        _, buffer = cv2.imencode('.jpg', frame)\n        frame = buffer.tobytes()\n        yield (b'--frame\\r\\nContent-Type: image/jpeg\\r\\n\\r\\n' + frame + b'\\r\\n')\n@app.route('/video_feed')\ndef video_feed():",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "video_feed",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def video_feed():\n    return Response(generate_frames(), mimetype='multipart/x-mixed-replace; boundary=frame')\n# Alert sending\ndef send_traffic_alert(event_type, direction, confidence=None):\n    headers = {\n        \"apikey\": SUPABASE_API_KEY,\n        \"Authorization\": f\"Bearer {SUPABASE_API_KEY}\",\n        \"Content-Type\": \"application/json\",\n        \"Prefer\": \"return=representation\"\n    }",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "send_traffic_alert",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def send_traffic_alert(event_type, direction, confidence=None):\n    headers = {\n        \"apikey\": SUPABASE_API_KEY,\n        \"Authorization\": f\"Bearer {SUPABASE_API_KEY}\",\n        \"Content-Type\": \"application/json\",\n        \"Prefer\": \"return=representation\"\n    }\n    data = {\n        \"event_type\": event_type,\n        \"direction\": direction.name,",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "log_event_to_supabase",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def log_event_to_supabase(event_type, direction, vehicle_count=None):\n    try:\n        data = {\n            \"event_type\": event_type,\n            \"direction\": direction.name,\n            \"timestamp\": time.strftime(\"%Y-%m-%d %H:%M:%S\"),\n        }\n        if vehicle_count is not None:\n            data[\"vehicle_count\"] = vehicle_count\n        headers = {",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "rotate_camera",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def rotate_camera(angle):\n    duty = angle / 18 + 2\n    GPIO.output(SERVO_PIN, True)\n    pwm.ChangeDutyCycle(duty)\n    time.sleep(0.5)\n    GPIO.output(SERVO_PIN, False)\n    pwm.ChangeDutyCycle(0)\n# Main system initialization\nclass IntelligentTrafficSystem:\n    def __init__(self, camera_ports, api_key, gsm_port=None):",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "monitor_traffic",
+        "kind": 2,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "def monitor_traffic():\n    traffic_system = IntelligentTrafficSystem(JUNCTIONS, SUPABASE_API_KEY, gsm_port=\"/dev/ttyUSB0\")\n    while True:\n        for direction, camera_id in JUNCTIONS.items():\n            cap = cv2.VideoCapture(camera_id)\n            success, frame = cap.read()\n            if not success:\n                continue\n            vision_response = traffic_system.vision_client.analyze_frame(frame, direction)\n            if vision_response:",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "SUPABASE_URL",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "SUPABASE_URL = \"https://fxvslxkvsqydgqtgzqlg.supabase.com\"\nSUPABASE_API_KEY = \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ4dnNseGt2c3F5ZGdxdGd6cWxnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkwNDE2MzYsImV4cCI6MjA2NDYxNzYzNn0.YbwRTt9ADEzpKHOUL28s3mkKJM4GdaqAJ4P5DtyYqqg\"\nSUPABASE_TABLE_NAME = \"traffic_alerts\"\nCONGESTION_THRESHOLD = 10  # Example threshold for congestion\nJUNCTIONS = {\n    Direction.NORTH: 0,\n    Direction.EAST: 1,\n    Direction.SOUTH: 2,\n    Direction.WEST: 3\n}",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "SUPABASE_API_KEY",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "SUPABASE_API_KEY = \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZ4dnNseGt2c3F5ZGdxdGd6cWxnIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDkwNDE2MzYsImV4cCI6MjA2NDYxNzYzNn0.YbwRTt9ADEzpKHOUL28s3mkKJM4GdaqAJ4P5DtyYqqg\"\nSUPABASE_TABLE_NAME = \"traffic_alerts\"\nCONGESTION_THRESHOLD = 10  # Example threshold for congestion\nJUNCTIONS = {\n    Direction.NORTH: 0,\n    Direction.EAST: 1,\n    Direction.SOUTH: 2,\n    Direction.WEST: 3\n}\n# Logging setup",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "SUPABASE_TABLE_NAME",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "SUPABASE_TABLE_NAME = \"traffic_alerts\"\nCONGESTION_THRESHOLD = 10  # Example threshold for congestion\nJUNCTIONS = {\n    Direction.NORTH: 0,\n    Direction.EAST: 1,\n    Direction.SOUTH: 2,\n    Direction.WEST: 3\n}\n# Logging setup\nlogging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "CONGESTION_THRESHOLD",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "CONGESTION_THRESHOLD = 10  # Example threshold for congestion\nJUNCTIONS = {\n    Direction.NORTH: 0,\n    Direction.EAST: 1,\n    Direction.SOUTH: 2,\n    Direction.WEST: 3\n}\n# Logging setup\nlogging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')\nlogger = logging.getLogger(__name__)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "JUNCTIONS",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "JUNCTIONS = {\n    Direction.NORTH: 0,\n    Direction.EAST: 1,\n    Direction.SOUTH: 2,\n    Direction.WEST: 3\n}\n# Logging setup\nlogging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')\nlogger = logging.getLogger(__name__)\n# Livefeed via Flask",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "logger",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "logger = logging.getLogger(__name__)\n# Livefeed via Flask\napp = Flask(__name__)\ncamera = cv2.VideoCapture(0)\ndef generate_frames():\n    while True:\n        success, frame = camera.read()\n        if not success:\n            break\n        _, buffer = cv2.imencode('.jpg', frame)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "app = Flask(__name__)\ncamera = cv2.VideoCapture(0)\ndef generate_frames():\n    while True:\n        success, frame = camera.read()\n        if not success:\n            break\n        _, buffer = cv2.imencode('.jpg', frame)\n        frame = buffer.tobytes()\n        yield (b'--frame\\r\\nContent-Type: image/jpeg\\r\\n\\r\\n' + frame + b'\\r\\n')",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "camera",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "camera = cv2.VideoCapture(0)\ndef generate_frames():\n    while True:\n        success, frame = camera.read()\n        if not success:\n            break\n        _, buffer = cv2.imencode('.jpg', frame)\n        frame = buffer.tobytes()\n        yield (b'--frame\\r\\nContent-Type: image/jpeg\\r\\n\\r\\n' + frame + b'\\r\\n')\n@app.route('/video_feed')",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "SERVO_PIN",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "SERVO_PIN = 18\nGPIO.setmode(GPIO.BCM)\nGPIO.setup(SERVO_PIN, GPIO.OUT)\npwm = GPIO.PWM(SERVO_PIN, 50)\npwm.start(0)\ndef rotate_camera(angle):\n    duty = angle / 18 + 2\n    GPIO.output(SERVO_PIN, True)\n    pwm.ChangeDutyCycle(duty)\n    time.sleep(0.5)",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "pwm",
+        "kind": 5,
+        "importPath": "app",
+        "description": "app",
+        "peekOfCode": "pwm = GPIO.PWM(SERVO_PIN, 50)\npwm.start(0)\ndef rotate_camera(angle):\n    duty = angle / 18 + 2\n    GPIO.output(SERVO_PIN, True)\n    pwm.ChangeDutyCycle(duty)\n    time.sleep(0.5)\n    GPIO.output(SERVO_PIN, False)\n    pwm.ChangeDutyCycle(0)\n# Main system initialization",
+        "detail": "app",
+        "documentation": {}
+    },
+    {
+        "label": "MockVideoCapture",
+        "kind": 6,
+        "importPath": "simulate_frontend",
+        "description": "simulate_frontend",
+        "peekOfCode": "class MockVideoCapture:\n    def __init__(self, port):\n        self.port = port\n        self.opened = True\n    def isOpened(self):\n        return self.opened\n    def read(self):\n        return True, f\"frame_from_camera_{self.port}\"\n    def release(self):\n        self.opened = False",
+        "detail": "simulate_frontend",
+        "documentation": {}
+    },
+    {
+        "label": "MockVisionModelClient",
+        "kind": 6,
+        "importPath": "simulate_frontend",
+        "description": "simulate_frontend",
+        "peekOfCode": "class MockVisionModelClient:\n    def __init__(self, api_key):\n        self.api_key = api_key\n    def analyze_frame(self, frame, direction):\n        responses = [\n            f\"5 cars, no emergency vehicles, light traffic, no accident\",\n            f\"12 vehicles, ambulance detected, heavy traffic, no accident\",\n            f\"3 cars, no emergency vehicles, moderate traffic, accident detected: collision\",\n            f\"15 vehicles, no emergency vehicles, heavy traffic, no accident\",\n        ]",
+        "detail": "simulate_frontend",
+        "documentation": {}
+    },
+    {
+        "label": "MockTrafficLight",
+        "kind": 6,
+        "importPath": "simulate_frontend",
+        "description": "simulate_frontend",
+        "peekOfCode": "class MockTrafficLight(TrafficLight):\n    def setup(self):\n        pass\n    def set_red(self):\n        pass\n    def set_yellow(self):\n        pass\n    def set_green(self):\n        pass\n    def turn_off(self):",
+        "detail": "simulate_frontend",
+        "documentation": {}
+    },
+    {
+        "label": "SimulatedTrafficSystem",
+        "kind": 6,
+        "importPath": "simulate_frontend",
+        "description": "simulate_frontend",
+        "peekOfCode": "class SimulatedTrafficSystem:\n    def __init__(self):\n        self.traffic_lights = {\n            Direction.NORTH: MockTrafficLight(2, 3, 4),\n            Direction.EAST: MockTrafficLight(17, 27, 22),\n            Direction.SOUTH: MockTrafficLight(10, 9, 11),\n            Direction.WEST: MockTrafficLight(5, 6, 13)\n        }\n        for light in self.traffic_lights.values():\n            light.setup()",
+        "detail": "simulate_frontend",
+        "documentation": {}
+    },
+    {
+        "label": "logs",
+        "kind": 2,
+        "importPath": "simulate_frontend",
+        "description": "simulate_frontend",
+        "peekOfCode": "def logs():\n    return jsonify({\"logs\": list(simulation_logs)})\n# Start simulation in background thread\ndef start_simulation():\n    sim = SimulatedTrafficSystem()\n    t = threading.Thread(target=sim.run_simulation, kwargs={\"cycles\":1000, \"delay\":1}, daemon=True)\n    t.start()\nif __name__ == \"__main__\":\n    logging.basicConfig(level=logging.INFO)\n    start_simulation()",
+        "detail": "simulate_frontend",
+        "documentation": {}
+    },
+    {
+        "label": "start_simulation",
+        "kind": 2,
+        "importPath": "simulate_frontend",
+        "description": "simulate_frontend",
+        "peekOfCode": "def start_simulation():\n    sim = SimulatedTrafficSystem()\n    t = threading.Thread(target=sim.run_simulation, kwargs={\"cycles\":1000, \"delay\":1}, daemon=True)\n    t.start()\nif __name__ == \"__main__\":\n    logging.basicConfig(level=logging.INFO)\n    start_simulation()\n    app.run(debug=True, port=8000)",
+        "detail": "simulate_frontend",
+        "documentation": {}
+    },
+    {
+        "label": "MockGPIOModule",
+        "kind": 5,
+        "importPath": "simulate_frontend",
+        "description": "simulate_frontend",
+        "peekOfCode": "MockGPIOModule = types.ModuleType('RPi.GPIO')\nsetattr(MockGPIOModule, 'BCM', 'BCM')\nsetattr(MockGPIOModule, 'OUT', 'OUT')\nsetattr(MockGPIOModule, 'HIGH', 1)\nsetattr(MockGPIOModule, 'LOW', 0)\nsetattr(MockGPIOModule, 'setmode', lambda mode: None)\nsetattr(MockGPIOModule, 'setup', lambda pin, mode: None)\nsetattr(MockGPIOModule, 'output', lambda pin, value: None)\nsetattr(MockGPIOModule, 'cleanup', lambda: None)\nsys.modules['RPi.GPIO'] = MockGPIOModule",
+        "detail": "simulate_frontend",
+        "documentation": {}
+    },
+    {
+        "label": "sys.modules['RPi.GPIO']",
+        "kind": 5,
+        "importPath": "simulate_frontend",
+        "description": "simulate_frontend",
+        "peekOfCode": "sys.modules['RPi.GPIO'] = MockGPIOModule\nimport logging\nimport random\nimport time\nimport threading\nfrom flask import Flask, render_template_string, jsonify\nfrom flask_cors import CORS\nfrom enum import Enum\n# Mock Camera\nclass MockVideoCapture:",
+        "detail": "simulate_frontend",
+        "documentation": {}
+    },
+    {
+        "label": "cv2",
+        "kind": 5,
+        "importPath": "simulate_frontend",
+        "description": "simulate_frontend",
+        "peekOfCode": "cv2 = types.SimpleNamespace()\ncv2.VideoCapture = MockVideoCapture\n# Mock VisionModelClient\nclass MockVisionModelClient:\n    def __init__(self, api_key):\n        self.api_key = api_key\n    def analyze_frame(self, frame, direction):\n        responses = [\n            f\"5 cars, no emergency vehicles, light traffic, no accident\",\n            f\"12 vehicles, ambulance detected, heavy traffic, no accident\",",
+        "detail": "simulate_frontend",
+        "documentation": {}
+    },
+    {
+        "label": "cv2.VideoCapture",
+        "kind": 5,
+        "importPath": "simulate_frontend",
+        "description": "simulate_frontend",
+        "peekOfCode": "cv2.VideoCapture = MockVideoCapture\n# Mock VisionModelClient\nclass MockVisionModelClient:\n    def __init__(self, api_key):\n        self.api_key = api_key\n    def analyze_frame(self, frame, direction):\n        responses = [\n            f\"5 cars, no emergency vehicles, light traffic, no accident\",\n            f\"12 vehicles, ambulance detected, heavy traffic, no accident\",\n            f\"3 cars, no emergency vehicles, moderate traffic, accident detected: collision\",",
+        "detail": "simulate_frontend",
+        "documentation": {}
+    },
+    {
+        "label": "simulation_logs",
+        "kind": 5,
+        "importPath": "simulate_frontend",
+        "description": "simulate_frontend",
+        "peekOfCode": "simulation_logs = deque(maxlen=100)\nclass SimulatedTrafficSystem:\n    def __init__(self):\n        self.traffic_lights = {\n            Direction.NORTH: MockTrafficLight(2, 3, 4),\n            Direction.EAST: MockTrafficLight(17, 27, 22),\n            Direction.SOUTH: MockTrafficLight(10, 9, 11),\n            Direction.WEST: MockTrafficLight(5, 6, 13)\n        }\n        for light in self.traffic_lights.values():",
+        "detail": "simulate_frontend",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "simulate_frontend",
+        "description": "simulate_frontend",
+        "peekOfCode": "app = Flask(__name__)\nCORS(app)  # Enable CORS for all routes\n@app.route('/logs')\ndef logs():\n    return jsonify({\"logs\": list(simulation_logs)})\n# Start simulation in background thread\ndef start_simulation():\n    sim = SimulatedTrafficSystem()\n    t = threading.Thread(target=sim.run_simulation, kwargs={\"cycles\":1000, \"delay\":1}, daemon=True)\n    t.start()",
+        "detail": "simulate_frontend",
+        "documentation": {}
+    },
+    {
+        "label": "MockVideoCapture",
+        "kind": 6,
+        "importPath": "simulate_mvp",
+        "description": "simulate_mvp",
+        "peekOfCode": "class MockVideoCapture:\n    def __init__(self, port):\n        self.port = port\n        self.opened = True\n    def isOpened(self):\n        return self.opened\n    def read(self):\n        # Return True and a dummy frame (could be any object)\n        return True, f\"frame_from_camera_{self.port}\"\n    def release(self):",
+        "detail": "simulate_mvp",
+        "documentation": {}
+    },
+    {
+        "label": "MockVisionModelClient",
+        "kind": 6,
+        "importPath": "simulate_mvp",
+        "description": "simulate_mvp",
+        "peekOfCode": "class MockVisionModelClient:\n    def __init__(self, api_key):\n        self.api_key = api_key\n    def analyze_frame(self, frame, direction):\n        # Simulate different responses based on random choice\n        responses = [\n            f\"5 cars, no emergency vehicles, light traffic, no accident\", # Normal\n            f\"12 vehicles, ambulance detected, heavy traffic, no accident\", # Emergency\n            f\"3 cars, no emergency vehicles, moderate traffic, accident detected: collision\", # Accident\n            f\"15 vehicles, no emergency vehicles, heavy traffic, no accident\", # Congestion",
+        "detail": "simulate_mvp",
+        "documentation": {}
+    },
+    {
+        "label": "MockTrafficLight",
+        "kind": 6,
+        "importPath": "simulate_mvp",
+        "description": "simulate_mvp",
+        "peekOfCode": "class MockTrafficLight(TrafficLight):\n    def setup(self):\n        logging.info(f\"[MockTrafficLight] Setup pins: {self.red_pin}, {self.yellow_pin}, {self.green_pin}\")\n    def set_red(self):\n        logging.info(f\"[MockTrafficLight] RED ON for pins: {self.red_pin}\")\n    def set_yellow(self):\n        logging.info(f\"[MockTrafficLight] YELLOW ON for pins: {self.yellow_pin}\")\n    def set_green(self):\n        logging.info(f\"[MockTrafficLight] GREEN ON for pins: {self.green_pin}\")\n    def turn_off(self):",
+        "detail": "simulate_mvp",
+        "documentation": {}
+    },
+    {
+        "label": "SimulatedTrafficSystem",
+        "kind": 6,
+        "importPath": "simulate_mvp",
+        "description": "simulate_mvp",
+        "peekOfCode": "class SimulatedTrafficSystem:\n    def __init__(self):\n        self.traffic_lights = {\n            Direction.NORTH: MockTrafficLight(2, 3, 4),\n            Direction.EAST: MockTrafficLight(17, 27, 22),\n            Direction.SOUTH: MockTrafficLight(10, 9, 11),\n            Direction.WEST: MockTrafficLight(5, 6, 13)\n        }\n        for light in self.traffic_lights.values():\n            light.setup()",
+        "detail": "simulate_mvp",
+        "documentation": {}
+    },
+    {
+        "label": "MockGPIOModule",
+        "kind": 5,
+        "importPath": "simulate_mvp",
+        "description": "simulate_mvp",
+        "peekOfCode": "MockGPIOModule = types.ModuleType('RPi.GPIO')\nsetattr(MockGPIOModule, 'BCM', 'BCM')\nsetattr(MockGPIOModule, 'OUT', 'OUT')\nsetattr(MockGPIOModule, 'HIGH', 1)\nsetattr(MockGPIOModule, 'LOW', 0)\nsetattr(MockGPIOModule, 'setmode', lambda mode: None)\nsetattr(MockGPIOModule, 'setup', lambda pin, mode: None)\nsetattr(MockGPIOModule, 'output', lambda pin, value: None)\nsetattr(MockGPIOModule, 'cleanup', lambda: None)\nsys.modules['RPi.GPIO'] = MockGPIOModule",
+        "detail": "simulate_mvp",
+        "documentation": {}
+    },
+    {
+        "label": "sys.modules['RPi.GPIO']",
+        "kind": 5,
+        "importPath": "simulate_mvp",
+        "description": "simulate_mvp",
+        "peekOfCode": "sys.modules['RPi.GPIO'] = MockGPIOModule\nimport logging\nimport random\nimport time\nfrom enum import Enum\n# Mock Camera\nclass MockVideoCapture:\n    def __init__(self, port):\n        self.port = port\n        self.opened = True",
+        "detail": "simulate_mvp",
+        "documentation": {}
+    },
+    {
+        "label": "cv2.VideoCapture",
+        "kind": 5,
+        "importPath": "simulate_mvp",
+        "description": "simulate_mvp",
+        "peekOfCode": "cv2.VideoCapture = MockVideoCapture\n# Mock VisionModelClient\nclass MockVisionModelClient:\n    def __init__(self, api_key):\n        self.api_key = api_key\n    def analyze_frame(self, frame, direction):\n        # Simulate different responses based on random choice\n        responses = [\n            f\"5 cars, no emergency vehicles, light traffic, no accident\", # Normal\n            f\"12 vehicles, ambulance detected, heavy traffic, no accident\", # Emergency",
+        "detail": "simulate_mvp",
+        "documentation": {}
+    }
+]

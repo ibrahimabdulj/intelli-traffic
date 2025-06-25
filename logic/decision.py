@@ -1,7 +1,7 @@
 import time
 import logging
 from enum import Enum  # If Direction enum is used here
-from components.traffic_light import TrafficLight
+from components.traffic_lights import TrafficLight
 from logic.direction import Direction
 # from detection.direction import Direction  # Assuming you defined Direction enum elsewhere
 

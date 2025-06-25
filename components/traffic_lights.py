@@ -1,4 +1,16 @@
-import RPi.GPIO as GPIO
+try:
+    import RPi.GPIO as GPIO
+except ImportError:
+    import types
+    GPIO = types.SimpleNamespace()
+    GPIO.BCM = 'BCM'
+    GPIO.OUT = 'OUT'
+    GPIO.HIGH = 1
+    GPIO.LOW = 0
+    GPIO.setmode = lambda mode: None
+    GPIO.setup = lambda pin, mode: None
+    GPIO.output = lambda pin, value: None
+    GPIO.cleanup = lambda: None
 import time
 import logging
 from logic.direction import Direction  # Only if you're using direction.name

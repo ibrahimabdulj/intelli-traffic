@@ -1,3 +1,5 @@
+from logic.direction import Direction
+
 class VehicleCounter:
     """Counts vehicles in each direction using vision model"""
     def __init__(self):
@@ -49,14 +51,13 @@ class VehicleCounter:
             self.count_history[direction].pop(0)
             
         # Use average for smoother counts
-        self.vehicle_counts[direction] = sum(self.count_history[direction]) / len(self.count_history[direction])
+        self.vehicle_counts[direction] = int(sum(self.count_history[direction]) / len(self.count_history[direction]))
         return self.vehicle_counts[direction]
         
     def get_count(self, direction):
         """Get the current count for a direction"""
         return self.vehicle_counts[direction]
 
-        
     def reset(self):
-    self.vehicle_counts = {direction: 0 for direction in Direction}
-    self.count_history = {direction: deque(maxlen=self.history_length) for direction in Direction}
+        self.vehicle_counts = {direction: 0 for direction in Direction}
+        self.count_history = {direction: [] for direction in Direction}

@@ -1,3 +1,6 @@
+import logging
+logger = logging.getLogger(__name__)
+
 class EmergencyDetector:
     """Detects emergency vehicles using vision model"""
     def __init__(self, confidence_threshold=0.7):

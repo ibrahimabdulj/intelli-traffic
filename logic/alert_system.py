@@ -1,11 +1,20 @@
-import serial
+try:
+    import serial
+except ImportError:
+    import types
+    serial = types.SimpleNamespace()
+    serial.Serial = lambda *args, **kwargs: None
 import time
 import logging
 from datetime import datetime
 from logic.direction import Direction
 import requests
 import os
-from dotenv import load_dotenv
+try:
+    from dotenv import load_dotenv
+except ImportError:
+    def load_dotenv(*args, **kwargs):
+        pass
 
 logger = logging.getLogger(__name__)
 load_dotenv()

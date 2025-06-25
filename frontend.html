@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Traffic Simulation Dashboard</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f8f8f8; margin: 0; padding: 0; }
+        .container { max-width: 700px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px #ccc; padding: 24px; }
+        h1 { text-align: center; }
+        .log-entry { border-bottom: 1px solid #eee; padding: 10px 0; }
+        .alerts { color: #b30000; font-weight: bold; }
+        .direction { font-weight: bold; }
+        .vision { color: #555; }
+    </style>
+    <script>
+        function fetchLogs() {
+            fetch('http://localhost:8000/logs').then(r => r.json()).then(data => {
+                let logs = data.logs;
+                let html = '';
+                for (let log of logs) {
+                    html += `<div class='log-entry'>`;
+                    html += `<span class='direction'>[Cycle ${log.cycle}] ${log.direction}</span><br/>`;
+                    html += `<span class='vision'>${log.vision_response}</span><br/>`;
+                    html += `<span>Vehicle count: ${log.vehicle_count}</span><br/>`;
+                    if (log.alerts.length > 0) {
+                        html += `<span class='alerts'>Alerts: ${log.alerts.join(' | ')}</span>`;
+                    }
+                    html += `</div>`;
+                }
+                document.getElementById('logs').innerHTML = html;
+            });
+        }
+        setInterval(fetchLogs, 1000);
+        window.onload = fetchLogs;
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Traffic Simulation Dashboard</h1>
+        <div id="logs"></div>
+    </div>
+</body>
+</html> 
